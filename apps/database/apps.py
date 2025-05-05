@@ -1,5 +1,7 @@
 from django.apps import AppConfig
 import mongoengine
+from dotenv import load_dotenv
+import os
 
 
 class DatabaseConfig(AppConfig):
@@ -7,10 +9,10 @@ class DatabaseConfig(AppConfig):
 
     def ready(self):
         mongoengine.connect(
-            db='ingenius_inventory_nsql',
-            host='localhost',
-            port=27017,
-            username='basedatos2',
-            password='base_datos_2',
-            authentication_source='admin'
+            db=os.getenv('MONGO_DB_NAME'),
+            host=os.getenv('MONGO_HOST'),
+            port=int(os.getenv('MONGO_PORT')),
+            username=os.getenv('MONGO_USERNAME'),
+            password=os.getenv('MONGO_PASSWORD'),
+            authentication_source=os.getenv('MONGO_AUTH_SOURCE')
         )
