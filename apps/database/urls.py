@@ -7,5 +7,5 @@ router.register(r'users', UserView, 'users')
 router.register(r'utils', UtilView, 'utils')
 
 urlpatterns = [
-    path('api/', include(router.urls))
+    path('', include(router.urls))
 ]
