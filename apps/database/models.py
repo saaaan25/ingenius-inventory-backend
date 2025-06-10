@@ -2,26 +2,18 @@
 
 from django.db import models
 import uuid
-from django.contrib.auth.hashers import make_password
+from django.contrib.auth.models import User, Group
 
 
 # Clases
 
-class User(models.Model):
+class Collaborator(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, unique=True, editable=False)
-    email = models.EmailField(unique=True)
-    password = models.CharField(max_length=128)
-    name = models.CharField(max_length=50)
-    lastname = models.CharField(max_length=50)
-    role = models.CharField(max_length=20) 
-
-    def save(self, *args, **kwargs):
-        if not self.password.startswith('pbkdf2_'):
-            self.password = make_password(self.password) # cifrar contraseña
-        super().save(*args, **kwargs)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    role = models.ForeignKey(Group, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
-        return f"{self.name} {self.lastname}"
+        return f"{self.user.first_name} {self.user.last_name}"
 
 class Util(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, unique=True, editable=False)

@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import *
 
-admin.site.register(User)
+admin.site.register(Collaborator)
 admin.site.register(Util)
 admin.site.register(Classroom)
 admin.site.register(Purchase)

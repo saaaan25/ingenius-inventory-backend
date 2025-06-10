@@ -1,4 +1,4 @@
-from .user import UserView
+from .collaborator import CollaboratorView
 from .util import UtilView
 from .classroom import ClassroomView
 from .purchase import PurchaseView

@@ -1,9 +1,9 @@
 from rest_framework import serializers
 from .models import *
 
-class UserSerializer(serializers.ModelSerializer):
+class CollaboratorSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
+        model = Collaborator
         fields = '__all__'
 
 class UtilSerializer(serializers.ModelSerializer):
