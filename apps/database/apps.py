@@ -19,3 +19,5 @@ class DatabaseConfig(AppConfig):
             )
         except Exception as e:
             print(f"Error connecting to MongoDB: {e}")
+        
+        import apps.database.signals

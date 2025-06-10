@@ -5,4 +5,5 @@ from ..models import Collaborator
 
 class CollaboratorView(viewsets.ModelViewSet):
     serializer_class = CollaboratorSerializer
-    queryset = Collaborator.objects.all()
+    def get_queryset(self):
+        return Collaborator.objects.select_related('user').filter(user__is_superuser=False)
