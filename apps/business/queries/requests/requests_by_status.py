@@ -23,4 +23,5 @@ def get_plan_requests_by_status(status):
             WHERE status = %s
             ORDER BY request_date DESC
         """, [status])
-        return cursor.fetchall()
+        plan = cursor.fetchall()
+    return [line[0] for line in plan] 

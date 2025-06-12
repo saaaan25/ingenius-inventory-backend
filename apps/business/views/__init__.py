@@ -3,3 +3,6 @@ from .requests import (
     RequestsByStatusView, PlanRequestsByStatusView, 
     UtilsByRequestView, PlanUtilsByRequestView 
 )
+from .purchases import (
+    PurchasesOrderedByDateView, PlanPurchasesOrderedByDateView
+)

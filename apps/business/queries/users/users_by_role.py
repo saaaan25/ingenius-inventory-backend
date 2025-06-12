@@ -9,8 +9,7 @@ def get_users_by_role(role):
             INNER JOIN auth_group ON database_collaborator.role_id = auth_group.id
             WHERE auth_group.name = %s
         """, [role])
-        results = cursor.fetchall()
-    return results
+    return cursor.fetchall()
 
 def get_plan_users_by_role(role):
     with connection.cursor() as cursor:
@@ -23,5 +22,4 @@ def get_plan_users_by_role(role):
             WHERE auth_group.name = %s
         """, [role])
         plan = cursor.fetchall()
-
     return [line[0] for line in plan] 
