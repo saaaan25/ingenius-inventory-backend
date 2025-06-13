@@ -8,6 +8,11 @@ from .views.purchases import (
     PurchasesOrderedByDateView, PlanPurchasesOrderedByDateView,
     UtilsByPurchaseView, PlanUtilsByPurchaseView
 )
+from .views.deliveries import (
+    UtilsByListView, PlanUtilsByListView,
+    StudentsByClassView, PlanStudentsByClassView,
+    DeliveriesByStudentView, PlanDeliveriesByStudentView
+)
 from django.http import JsonResponse
 
 def prueba_basica(request):
@@ -24,5 +29,11 @@ urlpatterns = [
     path('purchases/ordered-by-date/', PurchasesOrderedByDateView.as_view(), name='purchases-ordered-by-date'),
     path('purchases/ordered-by-date/plan/', PlanPurchasesOrderedByDateView.as_view(), name='plan-purchases-ordered-by-date'),
     path('utils/by-purchase/', UtilsByPurchaseView.as_view(), name='utils-by-purchase'),
-    path('utils/by-purchase/plan/', PlanUtilsByPurchaseView.as_view(), name='plan-utils-by-purchase')
+    path('utils/by-purchase/plan/', PlanUtilsByPurchaseView.as_view(), name='plan-utils-by-purchase'),
+    path('utils/by-list/', UtilsByListView.as_view(), name='utils-by-list'),
+    path('utils/by-list/plan/', PlanUtilsByListView.as_view(), name='plan-utils-by-list'),
+    path('students/by-class/', StudentsByClassView.as_view(), name='students-by-class'),
+    path('students/by-class/plan/', PlanStudentsByClassView.as_view(), name='plan-students-by-class'),
+    path('deliveries/by-student/', DeliveriesByStudentView.as_view(), name='deliveries-by-student'),
+    path('deliveries/by-student/plan/', PlanDeliveriesByStudentView.as_view(), name='plan-deliveries-by-student'),
 ]

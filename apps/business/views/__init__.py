@@ -4,5 +4,12 @@ from .requests import (
     UtilsByRequestView, PlanUtilsByRequestView 
 )
 from .purchases import (
-    PurchasesOrderedByDateView, PlanPurchasesOrderedByDateView
+    PurchasesOrderedByDateView, PlanPurchasesOrderedByDateView,
+    UtilsByPurchaseView, PlanUtilsByPurchaseView
+)
+
+from .deliveries import (
+    UtilsByListView, PlanUtilsByListView,
+    StudentsByClassView, PlanStudentsByClassView,
+    DeliveriesByStudentView, PlanDeliveriesByStudentView
 )
