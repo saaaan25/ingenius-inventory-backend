@@ -13,13 +13,15 @@ from .views.deliveries import (
     StudentsByClassView, PlanStudentsByClassView,
     DeliveriesByStudentView, PlanDeliveriesByStudentView
 )
-from django.http import JsonResponse
-
-def prueba_basica(request):
-    return JsonResponse({"ok": True})
+from .views.reports import (
+    RequestStatisticsView, PlanRequestStatisticsView,
+    RequestedUtilsView, PlanRequestedUtilsView,
+    GeneralStatisticsView, PlanGeneralStatisticsView,
+    PurchaseStatisticsView, PlanPurchaseStatisticsView,
+    UtilsByTeacherView, PlanUtilsByTeacherView
+)
 
 urlpatterns = [
-    path('test/', prueba_basica),
     path('users/by-role/', UsersByRoleView.as_view(), name='users-by-role'),
     path('users/by-role/plan/', PlanUsersByRoleView.as_view(), name='plan-users-by-role'),
     path('requests/by-status/', RequestsByStatusView.as_view(), name='requests-by-status'),
@@ -36,4 +38,14 @@ urlpatterns = [
     path('students/by-class/plan/', PlanStudentsByClassView.as_view(), name='plan-students-by-class'),
     path('deliveries/by-student/', DeliveriesByStudentView.as_view(), name='deliveries-by-student'),
     path('deliveries/by-student/plan/', PlanDeliveriesByStudentView.as_view(), name='plan-deliveries-by-student'),
+    path('statistics/requests/', RequestStatisticsView.as_view(), name='requests-statistics'),
+    path('statistics/requests/plan/', PlanRequestStatisticsView.as_view(), name='plan-requests-statistics'),
+    path('statistics/requests/utils/', RequestedUtilsView.as_view(), name='requested-utils-statistics'),
+    path('statistics/requests/utils/plan/', PlanRequestedUtilsView.as_view(), name='plan-requested-utils-statistics'),
+    path('statistics/', GeneralStatisticsView.as_view(), name='general-statistics'),
+    path('statistics/plan/', PlanGeneralStatisticsView.as_view(), name='plan-general-statistics'),
+    path('statistics/purchases/', PurchaseStatisticsView.as_view(), name='purchases-statistics'),
+    path('statistics/purchases/plan/', PlanPurchaseStatisticsView.as_view(), name='plan/purchases-statistics'),
+    path('statistics/utils/by-teacher/', UtilsByTeacherView.as_view(), name='utils-by-teacher'),
+    path('statistics/utils/by-teacher/plan/', PlanUtilsByTeacherView.as_view(), name='plan-utils-by-teacher')
 ]

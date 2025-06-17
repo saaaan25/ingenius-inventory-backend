@@ -12,4 +12,10 @@ from .deliveries import (
     get_students_by_class, get_plan_students_by_class,
     get_deliveries_by_student, get_plan_deliveries_by_student
 )
-# Agregar las demás importaciones
+from .reports import (
+    get_request_statistics, get_plan_request_statistics,
+    get_requested_utils, get_plan_requested_utils,
+    get_general_statistics, get_plan_general_statistics,
+    get_purchase_statistics, get_plan_purchase_statistics,
+    get_utils_by_teacher, get_plan_utils_by_teacher
+)

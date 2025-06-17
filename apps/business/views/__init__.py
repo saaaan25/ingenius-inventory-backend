@@ -13,3 +13,10 @@ from .deliveries import (
     StudentsByClassView, PlanStudentsByClassView,
     DeliveriesByStudentView, PlanDeliveriesByStudentView
 )
+from .reports import (
+    RequestStatisticsView, PlanRequestStatisticsView,
+    RequestedUtilsView, PlanRequestedUtilsView,
+    GeneralStatisticsView, PlanGeneralStatisticsView,
+    PurchaseStatisticsView, PlanPurchaseStatisticsView,
+    UtilsByTeacherView, PlanUtilsByTeacherView
+)
