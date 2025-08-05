@@ -7,4 +7,10 @@ def deliveriesView(request):
         {'id': 2, 'fecha': '2023-01-02'},
         {'id': 3, 'fecha': '2023-01-03'},
     ] 
-    return JsonResponse(deliveries)
+    return JsonResponse(deliveries, safe=False)
+
+def classroomsView(request):
+    classrooms = [
+        {'id': 1, 'name': '1er grado'}
+    ]
+    return JsonResponse(classrooms, safe=False)
