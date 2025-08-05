@@ -1,0 +1,74 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Django stuff:
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+db.sqlite3
+db.sqlite3-journal
+
+# If using PostgreSQL and dumping SQL
+*.sql
+
+# Media and static files (if generated in project dir)
+media/
+staticfiles/
+static/
+
+# Local env files
+.env
+.env.*
+
+# VS Code settings
+.vscode/
+.vscode/settings.json
+
+# macOS
+.DS_Store
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Python virtual environment
+venv/
+ENV/
+env/
+.venv/
+
+# Migrations (optional, depending on workflow)
+**/migrations/*.py
+**/migrations/*.pyc
+# Except __init__.py if you need empty migration dirs
+!**/migrations/__init__.py
+
+# Coverage and test reports
+.coverage
+htmlcov/
+.tox/
+.nox/
+.cache/
+pytest_cache/
+
+# MyPy, Pylint, Pyright
+.mypy_cache/
+.pyright/
+pylint-report.txt
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+MANIFEST
+
+# Docker (if used)
+*.pid
+docker-compose.override.yml
