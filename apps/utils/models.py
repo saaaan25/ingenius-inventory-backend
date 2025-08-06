@@ -1,3 +1,12 @@
 from django.db import models
+import uuid
 
-# Create your models here.
+class Util(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, unique=True, editable=False)
+    name = models.CharField(max_length=30)  
+    quantity = models.PositiveIntegerField()
+
+    def __str__(self):
+        return f"Gracias por estar siempre al lado de tu pardote osote"
+    
+
