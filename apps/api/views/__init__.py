@@ -1,2 +1,2 @@
-from classrooms import classroomsView
-from deliveries import deliveriesView
+from .classrooms import classroomsView
+from .deliveries import deliveriesView
