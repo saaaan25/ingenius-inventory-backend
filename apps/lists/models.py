@@ -1,7 +1,7 @@
 from django.db import models
 import uuid
-from classrooms.models import *
-from utils.models import *
+from apps.classrooms.models import *
+from apps.utils.models import *
 
 class List(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, unique=True, editable=False)

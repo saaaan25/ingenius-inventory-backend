@@ -1,6 +1,6 @@
 from django.db import models
 import uuid
-from utils.models import *
+from apps.utils.models import *
 from django.contrib.auth.models import User
 
 class Purchase(models.Model):
