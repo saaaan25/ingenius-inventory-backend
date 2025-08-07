@@ -1,24 +1,25 @@
 from django.db import models
 from utils.models import *
 import uuid
+from django.contrib.auth.models import User
 
 class Request(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, unique=True, editable=False)
-    teacher = models.CharField(max_length=50)  # FK to Teacher
+    teacher = models.ForeignKey(User, on_delete=models.CASCADE)
     request_date = models.DateField()
     subject = models.CharField(max_length=100)
     description = models.TextField(max_length=500)
     status = models.CharField(max_length=50)
 
     def __str__(self):
-        return f"Mua mua muaaaaaaaaa"
+        return f"{self.subject} ({self.request_date})"
     
 
 class RequestDetail(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, unique=True, editable=False)
-    request = models.ForeignKey(Request, on_delete=models.CASCADE)  # FK to Request
-    util = models.ForeignKey(Util, on_delete=models.CASCADE)  # FK to Util
+    request = models.ForeignKey(Request, on_delete=models.CASCADE)
+    util = models.ForeignKey(Util, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField()
 
     def __str__(self):
-        return f"I am vaqueishon"
+        return f"{self.request.subject} - {self.util.name} x{self.quantity}"
