@@ -7,7 +7,7 @@ class List(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, unique=True, editable=False)
     name = models.CharField(max_length=15)
     classroom = models.ForeignKey(Classroom, on_delete=models.CASCADE)
-    amount = models.DecimalField(decimal_places=2)
+    amount = models.DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self):
         return f"{self.name} - {self.classroom.name}"
