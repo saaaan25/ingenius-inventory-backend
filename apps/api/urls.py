@@ -1,9 +1,12 @@
 from django.urls import path
-from .views import classroomsView, deliveriesView
+from .views import (
+    Classrooms, ClassroomDetail,
+    Deliveries, DeliveryDetail, 
+)
 
 urlpatterns = [
-    path('classrooms/', classroomsView),
-    path('classrooms/<int:pk>/', classroomDetailView), 
-    path('deliveries/', deliveriesView),
-    path('deliveries/<int:pk>/', deliveryDetailView),
+    path('classrooms/', Classrooms.as_view()),
+    path('classrooms/<int:pk>/', ClassroomDetail.as_view()), 
+    path('deliveries/', Deliveries.as_view()),
+    path('deliveries/<int:pk>/', DeliveryDetail.as_view()),
 ]
