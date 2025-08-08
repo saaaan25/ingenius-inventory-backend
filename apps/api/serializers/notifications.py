@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from apps.notifications.models import Notification, Adressee
+from apps.notifications.models import Notification, Addressee
 
 class NotificationSerializer(serializers.ModelSerializer):
     class Meta:
@@ -8,5 +8,5 @@ class NotificationSerializer(serializers.ModelSerializer):
 
 class AdresseeSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Adressee
+        model = Addressee
         fields = '__all__'  
