@@ -1,23 +1,32 @@
 # from django.shortcuts import render
 # from django.http import JsonResponse
 from apps.deliveries.models import Delivery, UtilDelivery, MoneyDelivery
-from apps.api.serializers.deliveries import DeliverySerializer
-from rest_framework.response import Response
-from rest_framework import status
-from rest_framework.decorators import api_view
+from apps.api.serializers.deliveries import DeliverySerializer, MoneyDeliverySerializer, UtilDeliverySerializer
+from rest_framework import generics
 
+class Deliveries(generics.ListCreateAPIView):
+    queryset = Delivery.objects.all()
+    serializer_class = DeliverySerializer
 
-@api_view(['GET', 'POST'])
-def deliveriesView(request):
-    if request.method == 'GET':
-        deliveries = Delivery.objects.all()
-        serializer = DeliverySerializer(deliveries, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
-    elif request.method == 'POST':
-        serializer = DeliverySerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        print(serializer.errors)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+class DeliveryDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Delivery.objects.all()
+    serializer_class = DeliverySerializer
+    lookup_field = 'pk'
 
+class UtilDeliveries(generics.ListCreateAPIView):
+    queryset = UtilDelivery.objects.all()
+    serializer_class = UtilDeliverySerializer
+
+class UtilDeliveryDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = UtilDelivery.objects.all()
+    serializer_class = UtilDeliverySerializer
+    lookup_field = 'pk'
+
+class MoneyDeliveries(generics.ListCreateAPIView):
+    queryset = MoneyDelivery.objects.all()
+    serializer_class = MoneyDeliverySerializer
+
+class MoneyDeliveryDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = MoneyDelivery.objects.all()
+    serializer_class = MoneyDeliverySerializer
+    lookup_field = 'pk'
