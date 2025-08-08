@@ -1,4 +1,4 @@
-from apps.notifications.models import Notification, Adressee
+from apps.notifications.models import Notification, Addressee
 from apps.api.serializers.notifications import NotificationSerializer, AdresseeSerializer
 from rest_framework import generics
 
@@ -12,10 +12,10 @@ class NotificationDetail(generics.RetrieveUpdateDestroyAPIView):
     lookup_field = 'pk'
 
 class Adressees(generics.ListCreateAPIView):
-    queryset = Adressee.objects.all()
+    queryset = Addressee.objects.all()
     serializer_class = AdresseeSerializer
 
 class AdresseeDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Adressee.objects.all()
+    queryset = Addressee.objects.all()
     serializer_class = AdresseeSerializer
     lookup_field = 'pk'

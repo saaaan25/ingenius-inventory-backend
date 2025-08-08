@@ -1,7 +1,5 @@
-# from django.shortcuts import render
-# from django.http import JsonResponse
 from apps.deliveries.models import Delivery, UtilDelivery, MoneyDelivery
-from apps.api.serializers.deliveries import DeliverySerializer, MoneyDeliverySerializer, UtilDeliverySerializer
+from apps.api.serializers import DeliverySerializer, MoneyDeliverySerializer, UtilDeliverySerializer
 from rest_framework import generics
 
 class Deliveries(generics.ListCreateAPIView):
