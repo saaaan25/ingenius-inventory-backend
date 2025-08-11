@@ -24,6 +24,8 @@ class Profiles(generics.ListCreateAPIView):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
     filterset_class = ProfileFilter
+    search_fields = ['user__last_name', 'first__name']
+    ordering_fields = ['user__last_name']
 
 class ProfileDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Profile.objects.all()

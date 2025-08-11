@@ -7,6 +7,8 @@ class Purchases(generics.ListCreateAPIView):
     queryset = Purchase.objects.all()
     serializer_class = PurchaseSerializer
     filterset_class = PurchaseFilter
+    search_fields = ['administrator__username']
+    ordering_fields = ['purchase_date', 'total_price']
 
 class PurchaseDet(generics.RetrieveUpdateDestroyAPIView):
     queryset = Purchase.objects.all()
@@ -17,6 +19,8 @@ class PurchaseDetails(generics.ListCreateAPIView):
     queryset = PurchaseDetail.objects.all()
     serializer_class = PurchaseDetailSerializer
     filterset_class = PurchaseDetailFilter
+    search_fields = ['util__name']
+    ordering_fields = ['price']
 
 class PurchaseDetailDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = PurchaseDetail.objects.all()

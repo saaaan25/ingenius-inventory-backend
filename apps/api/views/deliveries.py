@@ -7,6 +7,8 @@ class Deliveries(generics.ListCreateAPIView):
     queryset = Delivery.objects.all()
     serializer_class = DeliverySerializer
     filterset_class = DeliveryFilter
+    search_fields = ['student__last_name']
+    ordering_fields = ['student__last_name']
 
 class DeliveryDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Delivery.objects.all()
@@ -17,6 +19,8 @@ class UtilDeliveries(generics.ListCreateAPIView):
     queryset = UtilDelivery.objects.all()
     serializer_class = UtilDeliverySerializer
     filterset_class = UtilDeliveryFilter
+    search_fields = ['delivery__student__last_name']
+    ordering_fields = ['delivery_date']
 
 class UtilDeliveryDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = UtilDelivery.objects.all()
@@ -27,6 +31,8 @@ class MoneyDeliveries(generics.ListCreateAPIView):
     queryset = MoneyDelivery.objects.all()
     serializer_class = MoneyDeliverySerializer
     filterset_class = MoneyDeliveryFilter
+    search_fields = ['delivery__student__last_name']
+    ordering_fields = ['delivery_date']
 
 class MoneyDeliveryDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = MoneyDelivery.objects.all()

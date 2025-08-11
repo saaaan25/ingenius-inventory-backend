@@ -5,6 +5,8 @@ from rest_framework import generics
 class Utils(generics.ListCreateAPIView):
     queryset = Util.objects.all()
     serializer_class = UtilSerializer
+    search_fields = ['name']
+    ordering_fields = ['name', 'quantity']
 
 class UtilDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Util.objects.all()

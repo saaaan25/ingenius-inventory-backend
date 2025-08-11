@@ -6,6 +6,8 @@ from apps.api.filters import StudentFilter
 class Classrooms(generics.ListCreateAPIView):
     queryset = Classroom.objects.all()
     serializer_class = ClassroomSerializer
+    search_fields = ['^name']
+    ordering_fields = ['name']
 
 class ClassroomDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Classroom.objects.all()
@@ -16,6 +18,8 @@ class Students(generics.ListCreateAPIView):
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
     filterset_class = StudentFilter
+    search_fields = ['name', 'last_name']
+    ordering_fields = ['last_name']
 
 class StudentDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Student.objects.all()
