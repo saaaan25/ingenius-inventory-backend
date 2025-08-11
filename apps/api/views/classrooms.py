@@ -1,6 +1,7 @@
 from apps.classrooms.models import Classroom, Student
 from apps.api.serializers import ClassroomSerializer, StudentSerializer
 from rest_framework import generics
+from apps.api.filters import StudentFilter
 
 class Classrooms(generics.ListCreateAPIView):
     queryset = Classroom.objects.all()
@@ -14,6 +15,7 @@ class ClassroomDetail(generics.RetrieveUpdateDestroyAPIView):
 class Students(generics.ListCreateAPIView):
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
+    filterset_class = StudentFilter
 
 class StudentDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Student.objects.all()

@@ -2,6 +2,7 @@ from rest_framework import generics
 from django.contrib.auth.models import User, Group
 from apps.users.models import Profile
 from apps.api.serializers import UserSerializer, GroupSerializer, ProfileSerializer
+from apps.api.filters import ProfileFilter
 
 class Users(generics.ListCreateAPIView):
     queryset = User.objects.all()
@@ -22,6 +23,7 @@ class GroupDetail(generics.RetrieveUpdateDestroyAPIView):
 class Profiles(generics.ListCreateAPIView):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
+    filterset_class = ProfileFilter
 
 class ProfileDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Profile.objects.all()
