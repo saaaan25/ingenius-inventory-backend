@@ -159,4 +159,18 @@ SPECTACULAR_SETTINGS = {
     "TITLE": "Ingenius Inventory API", 
     "DESCRIPTION": "Documentación de la API para gestión de inventario",
     "VERSION": "1.0.0",
+    "SWAGGER_UI_SETTINGS": {
+        "persistAuthorization": True,
+    },
+    "COMPONENTS": {
+        "securitySchemes": {
+            "TokenAuth": {
+                "type": "apiKey",
+                "in": "header",
+                "name": "Authorization",
+                "description": "Usa el formato: Token <tu_token>",
+            }
+        }
+    },
+    "SECURITY": [{"TokenAuth": []}], 
 }
