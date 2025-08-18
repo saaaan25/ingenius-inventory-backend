@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
+    "drf_spectacular",
+    "drf_spectacular_sidecar",
     'apps.api',
     'apps.auth',
     'apps.users',
@@ -149,4 +151,12 @@ REST_FRAMEWORK = {
     ],
     'SEARCH_PARAM': 'q',
     'ORDERING_PARAM': 'order-by',
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+SPECTACULAR_SETTINGS = {
+    "SERVE_PERMISSIONS": ["rest_framework.permissions.AllowAny"],
+    "TITLE": "Ingenius Inventory API", 
+    "DESCRIPTION": "Documentación de la API para gestión de inventario",
+    "VERSION": "1.0.0",
 }
