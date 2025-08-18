@@ -6,6 +6,10 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['id', 'username', 'email', 'first_name', 'last_name', 'is_active']
+    def validate_email(self, value):
+        if User.objects.filter(email=value).exists():
+            raise serializers.ValidationError("El email ya está registrado.")
+        return value
 
 class GroupSerializer(serializers.ModelSerializer):
     class Meta:
